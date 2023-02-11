@@ -1,8 +1,8 @@
 {
-    "name": "andro/countrypkglaravel",
+    "name": "androlt/countrypkglaravel",
     "autoload": {
         "psr-4": {
-            "Andro\\Countrypkglaravel\\": "src/"
+            "Androlt\\Countrypkglaravel\\": "src/"
         }
     },
     "authors": [
