@@ -1,0 +1,15 @@
+{
+    "name": "andro/countrypkglaravel",
+    "autoload": {
+        "psr-4": {
+            "Andro\\Countrypkglaravel\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lestruviens",
+            "email": "admin@lestruviens.com"
+        }
+    ],
+    "require": {}
+}
