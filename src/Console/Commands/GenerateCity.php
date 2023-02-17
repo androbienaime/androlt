@@ -41,7 +41,7 @@ class GenerateStates extends Command
      */
     public function handle()
     {
-    	$response = file_get_contents(__DIR__.'/../../resources/files/cities.json');
+    	$response = file_get_contents(__DIR__ . '/../../resources/files/cities.json');
 		$city = json_decode($response);
 
         $state= $this->argument('state');

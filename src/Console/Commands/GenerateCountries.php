@@ -39,7 +39,7 @@ class GenerateCountries extends Command
      */
     public function handle()
     {
-        $response = file_get_contents(__DIR__.'/../../resources/files/countries.json');
+        $response = file_get_contents(__DIR__ . '/../../resources/files/countries.json');
 
         // GenerateMethod::generateCountries();
         $countries = json_decode($response);
