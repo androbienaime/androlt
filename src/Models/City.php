@@ -1,6 +1,6 @@
 <?php
 
-namespace AndroLT\Citypkg\Models;
+namespace AndroLT\Countrypkg\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

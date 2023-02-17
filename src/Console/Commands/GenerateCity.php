@@ -5,7 +5,7 @@ namespace AndroLT\Countrypkg\Console\Commands;
 // use App\Customs\GenerateMethod;
 use Illuminate\Console\Command;
 use Illuminate\Support\Arr;
-use AndroLT\Citypkg\Models\City;
+use AndroLT\Countrypkg\Models\City;
 use AndroLT\Countrypkg\Models\State;
 
 class GenerateCity extends Command
