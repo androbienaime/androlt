@@ -8,7 +8,7 @@ use Illuminate\Support\Arr;
 use AndroLT\Citypkg\Models\City;
 use AndroLT\Countrypkg\Models\State;
 
-class GenerateStates extends Command
+class GenerateCity extends Command
 {
     /**
      * The name and signature of the console command.
@@ -41,58 +41,58 @@ class GenerateStates extends Command
      */
     public function handle()
     {
-    	$response = file_get_contents(__DIR__ . '/../../resources/files/cities.json');
-		$city = json_decode($response);
+        $response = file_get_contents(__DIR__ . '/../../resources/files/cities.json');
+        $city = json_decode($response);
 
         $state= $this->argument('state');
         $count_city = 0;
         if ($state == 'all') {
 
-			if ($city != null) {
-				$no_of_cities = count($city);
-				for($i = 0; $i < $no_of_cities; $i++) {
-					$check_city = City::where(['name' => $city[$i]->name, 'state_id' => $city[$i]->state_id])->count();
-					if ($check_city <= 0) {
-						City::create([
-							'state_id' => $city[$i]->state_id,
-							'name' => $city[$i]->name
-						]);
-						++$count_city;
-						$city_r = $city[$i]->name;
-						$this->info("$city_r");
-					}
-				}
-			}
+            if ($city != null) {
+                $no_of_cities = count($city);
+                for($i = 0; $i < $no_of_cities; $i++) {
+                    $check_city = City::where(['name' => $city[$i]->name, 'state_id' => $city[$i]->state_id])->count();
+                    if ($check_city <= 0) {
+                        City::create([
+                            'state_id' => $city[$i]->state_id,
+                            'name' => $city[$i]->name
+                        ]);
+                        ++$count_city;
+                        $city_r = $city[$i]->name;
+                        $this->info("$city_r");
+                    }
+                }
+            }
 
 
-		}else{
-			if ($city != null) {
-				$no_of_city = count($city);
-				$state_db = State::where('name', $state)->first();
-				if ($state_db != null) {
-					$this->info("Generating City for $state...");
-					for($i = 0; $i < $no_of_city; $i++) {
-						$check_city = City::where(['name' => $city[$i]->name, 'state_id' => $state_db->id])->count();
-						if ($check_city <= 0) {
-							if ($state_db->id == $city[$i]->state_id) {
-								State::create([
-									'state_id' => $state_db->id,
-									'name' => $city[$i]->name
-								]);
-								++$count_city;
-								$city_r = $city[$i]->name;
-								$this->info("$city_r");
-							}
-						}
+        }else{
+            if ($city != null) {
+                $no_of_city = count($city);
+                $state_db = State::where('name', $state)->first();
+                if ($state_db != null) {
+                    $this->info("Generating City for $state...");
+                    for($i = 0; $i < $no_of_city; $i++) {
+                        $check_city = City::where(['name' => $city[$i]->name, 'state_id' => $state_db->id])->count();
+                        if ($check_city <= 0) {
+                            if ($state_db->id == $city[$i]->state_id) {
+                                State::create([
+                                    'state_id' => $state_db->id,
+                                    'name' => $city[$i]->name
+                                ]);
+                                ++$count_city;
+                                $city_r = $city[$i]->name;
+                                $this->info("$city_r");
+                            }
+                        }
 
-					}
-				}else{
-					dd("Ooops! No record found for the state you entered.");
-				}
-			}
-		}
+                    }
+                }else{
+                    dd("Ooops! No record found for the state you entered.");
+                }
+            }
+        }
 
-		$this->info("$count_city states generated for $state.");
+        $this->info("$count_city states generated for $state.");
 
     }
 }

@@ -1,8 +1,8 @@
 {
-    "name": "androlt/countrypkglaravel",
+    "name": "androlt/countrypkg-laravel",
     "autoload": {
         "psr-4": {
-            "Androlt\\Countrypkglaravel\\": "src/"
+            "Androlt\\Countrypkg\\": "src/"
         }
     },
     "authors": [
@@ -16,7 +16,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Androlt\\Countrypkglaravel\\CountrypkgServiceProvider"
+                "Androlt\\Countrypkg\\CountrypkgServiceProvider"
             ]
         }
     }
