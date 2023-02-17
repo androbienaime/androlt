@@ -11,5 +11,13 @@
             "email": "admin@lestruviens.com"
         }
     ],
-    "require": {}
+    "require": {},
+
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Androlt\\Countrypkg\\CountrypkgServiceProvider"
+            ]
+        }
+    }
 }
